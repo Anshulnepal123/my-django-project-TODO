@@ -4,55 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
-     @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Pixelify+Sans&display=swap');
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    .text{
-    margin-left: 20px;
-    font-family: 'Pixelify Sans';
-    font-size: 45px;
-}
-    header{
-        background-color: whitesmoke;
-        height: 10vh;
-        border-bottom: black 5px solid;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-    background-color:whitesmoke;
-    border: 2px solid black;
-    height: 70vh;
-    width: 50vh;
-    margin-left: 80vh;
-    margin-top: 5vh;
-    display: inline-block;
-    border-radius: 3px;
-    padding: 5px;
-}
-.welcome{
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Pixelify Sans';
-    margin-left: 80px;
-}
-.quote{
-    font-family: 'Pixelify Sans';
-    font-size: 45px;
-    margin-left: 30%;
-}
-h2 {
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 5px solid #0056b3;
+        }
+
+        .text {
+            font-size: 45px;
+            font-family: 'Pixelify Sans', sans-serif;
+            font-weight: bold;
+        }
+
+        .quote {
+            font-family: 'Pixelify Sans', sans-serif;
+            font-size: 45px;
             text-align: center;
+            margin: 20px 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            width: 400px;
+            margin: 5vh auto;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Pixelify Sans', sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         form {
-            background: #fff;
+            background: #f9f9f9;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         label,
@@ -60,6 +77,7 @@ h2 {
             display: block;
             margin: 10px 0;
         }
+
         input[type="text"],
         input[type="email"],
         input[type="password"] {
@@ -67,6 +85,7 @@ h2 {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 3px;
+            font-size: 16px;
         }
 
         input[type="submit"] {
@@ -76,62 +95,88 @@ h2 {
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        .signup{
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 20px;
-    padding-left: 20vh;    
-}
-.signup:hover{
-    background-color: #0056b3;
-}
 
-.signup a{
-    text-decoration: none;
-    color: white;
-}
-    .or{
-    margin: 0;
-    border: 2px black solid;
-    padding-left: 150px;
-    }
-</style>
+        .or {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .signup {
+            display: block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .signup:hover {
+            background-color: #0056b3;
+        }
+
+        .signup a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer {
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
     <header>
-        <div class="head">
         <div class="text"><b>DOIT Now</b></div>
-        </div>
     </header>
     <div class="quote">DO it now time will pass anyhow.</div>
     <div class="container">
         <div class="welcome"> <b>Welcome to Doit</b></div>
-    
-        <h2>Sign Up</h2>
-    <form action="{% url 'signup' %}" method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="pass" required>
 
-        <input type="submit" value="Sign Up">
-    </form>
-    <div class="or">OR</div>
-    <div class="signup"><a href='/'>Login</a></div>
+        <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="pass" required>
+
+            <input type="submit" value="Sign Up">
+        </form>
+        <div class="or">OR</div>
+        <a class="signup" href='/'>Login</a>
+    </div>
+    <footer>
+        <p>&copy; 2023 Doit now | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
 </body>
-
 </html>

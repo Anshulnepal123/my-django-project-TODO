@@ -20,7 +20,7 @@ def home(request):
             todo = Todo(title=title, description=desc, due_date=date)
             todo.save()
     except:
-        return HttpResponse("Please fill the form")
+        return HttpResponse(request,"Please fill the form")
     doit = Todo.objects.all()
     
     return render(request, 'home.html', {'doit': doit})
@@ -36,7 +36,7 @@ def signup(request):
             user.save()
             return redirect('home')
     except:
-        return('username is already choosen')
+        return HttpResponse('username is already choosen')
 
     return render(request,'signup.html')
 
